@@ -127,7 +127,7 @@ if __name__ == "__main__":
     i = 0
     def plus_ten(i):
         return i+10
-    next_10_stories = st.button(label="Next 10 Stories", on_click=plus_ten(i))
+    #next_10_stories = st.button(label="Next 10 Stories", on_click=plus_ten(i))
 
     if language:
         
