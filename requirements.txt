@@ -4,4 +4,4 @@ justext==2.2.0
 requests==2.31.0
 streamlit==1.30.0
 transformers==4.13.0
-torch==1.10.0
+torch==2.2.2
