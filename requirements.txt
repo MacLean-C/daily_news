@@ -1,7 +1,8 @@
 beautifulsoup4==4.9.3
 feedparser==6.0.11
-jusText==3.0.0
-Requests==2.31.0
+justext==2.2.0
+requests==2.31.0
 streamlit==1.30.0
-torch==2.3.0.dev20240121+cu121
-transformers==4.36.2
+transformers==4.13.0
+torch==2.1.0
+
