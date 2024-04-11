@@ -14,7 +14,7 @@ def wrap_text(text, width=70):
 
 @st.cache_resource  
 def load_model():
-    return T5ForConditionalGeneration.from_pretrained(r"google/flan-t5-base")
+    return T5ForConditionalGeneration.from_pretrained("google/flan-t5-base")
 
 @st.cache_resource
 def load_device():
@@ -22,7 +22,7 @@ def load_device():
 
 @st.cache_resource  
 def load_tokenizer():
-    return T5Tokenizer.from_pretrained(r"google/flan-t5-base")
+    return T5Tokenizer.from_pretrained("google/flan-t5-base")
 
 def clean_text(text, language):
     """justext is the best solution I have found to remove boilerplate text.
