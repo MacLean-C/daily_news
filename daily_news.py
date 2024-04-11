@@ -12,11 +12,11 @@ def wrap_text(text, width=70):
     wrapped_text = textwrap.fill(text, width)
     return wrapped_text
 
-@st.cache_resource  
+#@st.cache_resource  
 def load_model():
     return T5ForConditionalGeneration.from_pretrained("google/flan-t5-base")
 
-@st.cache_resource
+#@st.cache_resource
 def load_device():
     return "cuda:0" if torch.cuda.is_available() else "cpu"
 
