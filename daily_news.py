@@ -159,7 +159,7 @@ if __name__ == "__main__":
             rss_url2 = st.text_input("Enter a site")
             
             
-            
+            st.write(rss_url2)
         go = st.checkbox("Load news summaries")
         if go:
             
