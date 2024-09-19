@@ -157,6 +157,11 @@ if __name__ == "__main__":
 
         go = st.checkbox("Load news summaries")
         if go:
+            url = rss_url2
+            feed = feedparser.parse(url)
+            extraction(i, feed, model, tokenizer, device, language)
+            
+        elif go and existing_site:
             url = suggestion_dico[rss_url2]
             feed = feedparser.parse(url)
             extraction(i, feed, model, tokenizer, device, language)
