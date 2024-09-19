@@ -149,12 +149,12 @@ if __name__ == "__main__":
     
 }
         
-        rss_url2 = st.text_input("Enter a URL")
-        existing_site = st.checkbox("Choose a site?")
+        #rss_url2 = st.text_input("Enter a URL")
+        #existing_site = st.checkbox("Choose a site?")
         
-        if existing_site:
-            rss_url2 = st.selectbox("Choose a website", suggestion_dico)
-            url = suggestion_dico[rss_url2]
+        
+        rss_url2 = st.selectbox("Choose a website", suggestion_dico)
+        url = suggestion_dico[rss_url2]
             
         go = st.checkbox("Load news summaries")
         if go:
