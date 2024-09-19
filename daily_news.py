@@ -149,12 +149,17 @@ if __name__ == "__main__":
     
 }
         
+        rss_url2 = st.text_input("Enter a site")
         
-        rss_url2 = st.selectbox("Choose a website", suggestion_dico)
-
+        suggested = st.checkbox("Test a suggested site")
+        if suggested: 
+            rss_url2 = st.selectbox("Choose a website", suggestion_dico)
+            rss_url2 = suggestion_dico[rss_url2]
         go = st.checkbox("Load news summaries")
         if go:
-            url = suggestion_dico[rss_url2]
+            
+            #url = suggestion_dico[rss_url2]
+            url = rss_url2
             feed = feedparser.parse(url)
             extraction(i, feed, model, tokenizer, device, language)
         
