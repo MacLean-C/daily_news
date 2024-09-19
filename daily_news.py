@@ -12,11 +12,11 @@ def wrap_text(text, width=70):
     wrapped_text = textwrap.fill(text, width)
     return wrapped_text
 
-#@st.cache_resource  
+@st.cache_resource  
 def load_model():
     return T5ForConditionalGeneration.from_pretrained("google/flan-t5-base")
 
-#@st.cache_resource
+@st.cache_resource
 def load_device():
     return "cuda:0" if torch.cuda.is_available() else "cpu"
 
@@ -101,7 +101,7 @@ def tokenize_cat_summaries(text, language, model, tokenizer, device, chunk_size=
         torch.cuda.empty_cache()
         chunk = ' '.join(chunk)
         input_ids = tokenizer.encode(
-                            f"Summarize in a short paragraph in {language}: "
+                            f"Summarize in {language}: "
                             + chunk,
                             return_tensors="pt",
                         ).to(device)
@@ -121,6 +121,7 @@ if __name__ == "__main__":
     tokenizer = load_tokenizer()
     device = load_device()
     model = load_model().to(device)
+    
     #snltk.download('stopwords')
     language = st.selectbox("Please select the language of the publication: ",["English", "French", "German", "Spanish"])
     
@@ -131,7 +132,6 @@ if __name__ == "__main__":
 
     if language:
         
-        rss_url2 = st.text_input("Enter a valid link to an RSS feed.")
         suggestion_dico = {
     
         'BBC': 'http://feeds.bbci.co.uk/news/rss.xml',
@@ -147,9 +147,12 @@ if __name__ == "__main__":
         'Der Spiegel': 'https://www.spiegel.de/schlagzeilen/index.rss'
     
 }
-        suggestions = st.write(suggestion_dico)
-        if rss_url2:
-            feed = feedparser.parse(rss_url2)
+        rss_url2 = st.selectbox("Choose a website", suggestion_dico)
+
+        go = st.checkbox("Load news summaries")
+        if go:
+            url = suggestion_dico[rss_url2]
+            feed = feedparser.parse(url)
             extraction(i, feed, model, tokenizer, device, language)
         
         
