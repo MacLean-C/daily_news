@@ -166,6 +166,8 @@ if __name__ == "__main__":
             url = rss_url2
             feed = feedparser.parse(url)
             extraction(i, feed, model, tokenizer, device, language)
+        else: 
+            st.error("Please enter a valid URL or select a site.")  # Show an error if no URL is provided
         
         
 ## relire checkbox, il parait que tout se reexecute pour afficher le texte d'un seul article
