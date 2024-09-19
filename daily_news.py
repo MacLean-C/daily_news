@@ -84,9 +84,10 @@ def extraction(i, feed, model, tokenizer, device, language):
         link = entry.link
         st.write(f"Link: {link}")
         #st.write("**Page Content:** ?")
-        show_text = st.checkbox("**Read Full Article?**", key=link)
-        if show_text:
-            st.code(summary_text1)
+        
+        #show_text = st.checkbox("**Read Full Article?**", key=link)
+        #if show_text:
+         #   st.code(summary_text1)
         
 
 def tokenize_cat_summaries(text, language, model, tokenizer, device, chunk_size=512):
