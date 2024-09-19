@@ -154,17 +154,14 @@ if __name__ == "__main__":
         
         if existing_site:
             rss_url2 = st.selectbox("Choose a website", suggestion_dico)
-
+            url = suggestion_dico[rss_url2]
+            
         go = st.checkbox("Load news summaries")
         if go:
             url = str(rss_url2)
             feed = feedparser.parse(url)
             extraction(i, feed, model, tokenizer, device, language)
-            
-        elif go and existing_site:
-            url = suggestion_dico[rss_url2]
-            feed = feedparser.parse(url)
-            extraction(i, feed, model, tokenizer, device, language)
+        
         
         
 ## relire checkbox, il parait que tout se reexecute pour afficher le texte d'un seul article
