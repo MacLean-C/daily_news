@@ -157,7 +157,7 @@ if __name__ == "__main__":
 
         go = st.checkbox("Load news summaries")
         if go:
-            url = rss_url2
+            url = str(rss_url2)
             feed = feedparser.parse(url)
             extraction(i, feed, model, tokenizer, device, language)
             
