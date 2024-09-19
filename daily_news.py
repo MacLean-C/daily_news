@@ -148,7 +148,12 @@ if __name__ == "__main__":
         'Der Spiegel': 'https://www.spiegel.de/schlagzeilen/index.rss'
     
 }
-        rss_url2 = st.selectbox("Choose a website", suggestion_dico)
+        
+        rss_url2 = st.text_input("Enter a URL")
+        existing_site = st.checkbox("Choose a site?")
+        
+        if existing_site:
+            rss_url2 = st.selectbox("Choose a website", suggestion_dico)
 
         go = st.checkbox("Load news summaries")
         if go:
