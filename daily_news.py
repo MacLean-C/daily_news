@@ -150,32 +150,28 @@ if __name__ == "__main__":
 }
         
         
-        if 'rss_url2' not in st.session_state:
-                st.session_state['rss_url2'] = None
-        suggested = st.checkbox("Test a suggested site")
         
-        if suggested: 
-            rss_url2 = st.selectbox("Choose a website", suggestion_dico)
-            rss_url2 = suggestion_dico[rss_url2]
-            st.session_state['rss_url2'] = rss_url2
-        else: 
-            rss_url2 = st.text_input("Enter a site")
-            st.session_state['rss_url2'] = rss_url2
+        #suggested = st.checkbox("Test a suggested site")
+        
+        #if suggested: 
+         #   rss_url2 = st.selectbox("Choose a website", suggestion_dico)
+          #  rss_url2 = suggestion_dico[rss_url2]
+        #else: 
+        rss_url2 = st.text_input("Enter a site")
             
             
             
-            st.write(rss_url2)
+            
+            #st.write(rss_url2)
         go = st.checkbox("Load news summaries")
         if go:
-            if st.session_state['rss_url2']:
-                #url = st.session_state['rss_url2']
             
             #url = suggestion_dico[rss_url2]
-                url = rss_url2
-                feed = feedparser.parse(url)
-                extraction(i, feed, model, tokenizer, device, language)
-            else: 
-                st.error("Please enter a valid URL or select a site.")  # Show an error if no URL is provided
+            url = rss_url2
+            feed = feedparser.parse(url)
+            extraction(i, feed, model, tokenizer, device, language)
+        else: 
+            st.error("Please enter a valid URL or select a site.")  # Show an error if no URL is provided
         #play with session state bs
         
 ## relire checkbox, il parait que tout se reexecute pour afficher le texte d'un seul article
