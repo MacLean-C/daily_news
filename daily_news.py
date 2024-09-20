@@ -159,7 +159,7 @@ if __name__ == "__main__":
             rss_url2 = st.text_input("Enter a site")
             
             if rss_url2:
-                go = st.checkbox("Load news summaries")
+                go = st.checkbox("Load news summaries", key=2)
                 if go:
             
             #url = suggestion_dico[rss_url2]
@@ -172,7 +172,7 @@ if __name__ == "__main__":
             
             
             
-        go = st.checkbox("Load news summaries")
+        go = st.checkbox("Load news summaries",key=1)
         if go:
             
             #url = suggestion_dico[rss_url2]
