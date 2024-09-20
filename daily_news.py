@@ -163,14 +163,14 @@ if __name__ == "__main__":
                 st.session_state.text = "bbc.com"
 
 # Allow the user to modify the text
-                modified_text = st.text_input("Edit Text", value=st.session_state.text)
+            modified_text = st.text_input("Edit Text", value=st.session_state.text)
 
 # Update session state when the user modifies the text
-                if modified_text != st.session_state.text:
-                    st.session_state.text = modified_text
-                    rss_url2 = modified_text  
+            if modified_text != st.session_state.text:
+                st.session_state.text = modified_text
+                rss_url2 = modified_text  
             
-                    st.write(rss_url2)
+                st.write(rss_url2)
         go = st.checkbox("Load news summaries")
         if go:
             
