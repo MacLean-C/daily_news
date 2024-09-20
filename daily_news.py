@@ -156,20 +156,22 @@ if __name__ == "__main__":
             rss_url2 = st.selectbox("Choose a website", suggestion_dico)
             rss_url2 = suggestion_dico[rss_url2]
         else: 
-            #rss_url2 = st.text_input("Enter a site")
+            rss_url2 = st.text_input("Enter a site")
             
-            # Initialize session state
-            if 'text' not in st.session_state:
-                st.session_state.text = "original"
-
-            # Allow the user to modify the text
-            rss_url2 = st.text_input("Edit Text", value=st.session_state.text)
-
-            # Update session state when the user modifies the text
-            if rss_url2 != st.session_state.text:
-                st.session_state.text = rss_url2
-
-           
+            if rss_url2:
+                go = st.checkbox("Load news summaries")
+                if go:
+            
+            #url = suggestion_dico[rss_url2]
+                    url = rss_url2
+                    feed = feedparser.parse(url)
+                    extraction(i, feed, model, tokenizer, device, language)
+                else: 
+                    st.error("Please enter a valid URL or select a site.")  # Show an error if no URL is provided
+                #play with session state bs
+            
+            
+            
         go = st.checkbox("Load news summaries")
         if go:
             
