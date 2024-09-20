@@ -171,6 +171,8 @@ if __name__ == "__main__":
                 rss_url2 = modified_text  
             
                 st.write(rss_url2)
+            else:
+                rss_url2 = st.session_state.text
         go = st.checkbox("Load news summaries")
         if go:
             
