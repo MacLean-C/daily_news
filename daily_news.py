@@ -152,17 +152,25 @@ if __name__ == "__main__":
         
         
         suggested = st.checkbox("Test a suggested site")
-        own = st.checkbox("Enter your own site")
+        
         if suggested: 
             rss_url2 = st.selectbox("Choose a website", suggestion_dico)
             rss_url2 = suggestion_dico[rss_url2]
-        if own: 
-            rss_url2 = st.text_input("Enter a site")
+        else: 
+           # rss_url2 = st.text_input("Enter a site")
             
+            if 'text' not in st.session_state:
+                st.session_state.text = "bbc.com"
+
+# Allow the user to modify the text
+                modified_text = st.text_input("Edit Text", value=st.session_state.text)
+
+# Update session state when the user modifies the text
+                if modified_text != st.session_state.text:
+                    st.session_state.text = modified_text
+                    rss_url2 = modified_text  
             
-            
-            
-            st.write(rss_url2)
+                    st.write(rss_url2)
         go = st.checkbox("Load news summaries")
         if go:
             
